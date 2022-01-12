@@ -44,10 +44,9 @@ const bcryptjs = require('bcryptjs');
 
   const usuarioDelete = async (req, res= response) => {
     const { id } = req.params;
-    const elim = await Usuario.findByIdAndRemove(id);
-    res.json({
-        msg: 'delete API - Controlador'
-    });
+    // const elim = await Usuario.findByIdAndRemove(id);
+    const elim = await Usuario.findByIdAndUpdate(id,{estado : false});
+    res.json(elim);
   };
 
   const usuarioPost = async(req, res= response) => {
